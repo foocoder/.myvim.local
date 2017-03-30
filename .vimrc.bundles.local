@@ -57,4 +57,7 @@
         Bundle "octol/vim-cpp-enhanced-highlight"
     "}
         UnBundle 'amirh/HTML-AutoCloseTag'
+        Bundle "derekwyatt/vim-fswitch"
+        Bundle "kshenoy/vim-signature"
+        Bundle "dyng/ctrlsf.vim"
 " }
