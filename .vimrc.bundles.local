@@ -50,9 +50,6 @@
         endif
     " }
 
-    "kevinw/pyflakes-vim{
-        Bundle "kevinw/pyflakes-vim"
-    "}
     "octol/vim-cpp-enhanced-highlight{
         Bundle "octol/vim-cpp-enhanced-highlight"
     "}
