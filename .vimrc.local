@@ -19,6 +19,18 @@
         "中文
         set fo+=mB
 
+        " 自动更新文件的最后更新时间
+        function! AutoUpdateTheLastUpdateInfo()
+            let s:original_pos = getpos(".")
+            let s:regexp = '^\s*\(\/\**\|\*\+\|\#\+\|\"\+\|\/\/\)\s*last\s\+\(update\|change\):'
+            let s:lu = search(s:regexp)
+            if s:lu != 0
+                let s:update_str = matchstr(getline(s:lu), s:regexp)
+                call setline(s:lu, s:update_str . " " . strftime("%Y-%m-%d %H:%M:%S"))
+                call setpos(".", s:original_pos)
+            endif
+        endfunction
+        autocmd BufWritePost *.{py,h,c,cpp,java},*vimrc call AutoUpdateTheLastUpdateInfo()
     "}
 
     "YouCompleteMe{
@@ -81,8 +93,8 @@
     "Ultisnips{
     "
         "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-        let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
-        let g:UltiSnipsSnippetDir="~/.vim/bundle/vim-snippets/UltiSnips"
+        let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips/"]
+        let g:UltiSnipsSnippetDir="~/.vim/UltiSnips/"
         let g:UltiSnipsExpandTrigger="<C-k>"
         let g:UltiSnipsJumpForwardTrigger="<C-j>"
         let g:UltiSnipsJumpBackwardTrigger="<C-k>"
