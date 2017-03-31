@@ -184,7 +184,7 @@
     "}
     "Konfekt/FastFold{
         nmap zuz <Plug>(FastFoldUpdate)
-        let g:fastfold_savehook = 1
+        let g:fastfold_savehook = 0
         let g:fastfold_fold_command_suffixes = ['x','X','a','A','o','O','c','C']
         let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
     "}
@@ -192,42 +192,9 @@
         " Set airline theme
         let g:airline_theme = 'murmur'
     " }
+    "derekwyatt/vim-fswitch{
+        nmap <silent> <leader>sw :FSHere<cr>
+
+    "}
 "
-""定义存放代码片段的文件夹，使用自定义和默认的，将会的到全局，有冲突的会提示
-"
-"" 参考https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-62941322
-"" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-63205056的配置
-"" UltiSnips completion function that tries to expand a snippet. If there's no
-"" snippet for expanding, it checks for completion window and if it's
-"" shown, selects first element. If there's no completion window it tries to
-"" jump to next placeholder. If there's no placeholder it just returns TAB key
-"function! g:UltiSnips_Complete()
-"    call UltiSnipsExpandSnippet()
-"    if g:ulti_expand_res == 0
-"        if pumvisible()
-"            return "\<C-n>"
-"        else
-"            call UltiSnips#JumpForwards()
-"            if g:ulti_jump_forwards_res == 0
-"               return "\<TAB>"
-"            endif
-"        endif
-"    endif
-"    return ""
-"endfunction
-"
-"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-"
-"" Expand snippet or return
-"let g:ulti_expand_res = 1
-"function! Ulti_ExpandOrEnter()
-"    call UltiSnipsExpandSnippet()
-"    if g:ulti_expand_res
-"        return ''
-"    else
-"        return "\<return>"
-"endfunction
-"
-"" Set <space> as primary trigger
-"inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
-"
+
