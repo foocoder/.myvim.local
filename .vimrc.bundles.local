@@ -56,4 +56,6 @@
         Bundle "derekwyatt/vim-fswitch"
         Bundle "kshenoy/vim-signature"
         Bundle "dyng/ctrlsf.vim"
+        Bundle "kien/rainbow_parentheses.vim"
+        Bundle "Konfekt/FastFold"
 " }

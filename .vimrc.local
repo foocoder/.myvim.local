@@ -22,7 +22,7 @@
         " 自动更新文件的最后更新时间
         function! AutoUpdateTheLastUpdateInfo()
             let s:original_pos = getpos(".")
-            let s:regexp = '^\s*\(\/\**\|\*\+\|\#\+\|\"\+\|\/\/\)\s*last\s\+\(update\|change\):'
+            let s:regexp = '^\s*\(%\+\|\/\**\|\*\+\|\#\+\|\"\+\|\/\/\)\s*@last\s\+\(update\|change\):'
             let s:lu = search(s:regexp)
             if s:lu != 0
                 let s:update_str = matchstr(getline(s:lu), s:regexp)
@@ -30,7 +30,7 @@
                 call setpos(".", s:original_pos)
             endif
         endfunction
-        autocmd BufWritePost *.{py,h,c,cpp,java},*vimrc call AutoUpdateTheLastUpdateInfo()
+        autocmd BufWritePost *.{py,sh,h,c,cpp,java,m},*vimrc call AutoUpdateTheLastUpdateInfo()
     "}
 
     "YouCompleteMe{
@@ -93,8 +93,8 @@
     "Ultisnips{
     "
         "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-        let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips/"]
-        let g:UltiSnipsSnippetDir="~/.vim/UltiSnips/"
+        let g:UltiSnipsSnippetDirectories=["UltiSnips_Yeoman/"]
+        let g:UltiSnipsSnippetDir=$HOME.'/.vim/UltiSnips_Yeoman/'
         let g:UltiSnipsExpandTrigger="<C-k>"
         let g:UltiSnipsJumpForwardTrigger="<C-j>"
         let g:UltiSnipsJumpBackwardTrigger="<C-k>"
@@ -157,7 +157,6 @@
     "}
 
     "kien/rainbow_parentheses{
-        Bundle "kien/rainbow_parentheses.vim"
         let g:rbpt_colorpairs = [
             \ ['brown',       'RoyalBlue3'],
             \ ['Darkblue',    'SeaGreen3'],
@@ -184,7 +183,6 @@
         au Syntax * RainbowParenthesesLoadBraces
     "}
     "Konfekt/FastFold{
-        Bundle "Konfekt/FastFold"
         nmap zuz <Plug>(FastFoldUpdate)
         let g:fastfold_savehook = 1
         let g:fastfold_fold_command_suffixes = ['x','X','a','A','o','O','c','C']

@@ -7,6 +7,10 @@ priority -50
 # looks, it is defaulted to junit4, setting this option to 3 will remove the
 # @Test annotation from the method
 
+###########################################################################
+#			    Global functions 						  #
+###########################################################################
+
 global !p
 def junit(snip):
 	if snip.opt("g:ultisnips_java_junit", "") == "3":
@@ -33,6 +37,24 @@ def mixedCase(word):
 	return word[0].lower() + word[1:]
 
 endglobal
+
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+snippet hpinfo "Shebang header for python scripts" b
+/*
+ *@@@@@@@@@@ File Information Start  @@@@@@@@@@
+ * @file:        `!v expand("%")`
+ * @author:      Fuchen Duan
+ * @email:       slow295185031@gmail.com
+ * @github:      https://foocoder.github.com
+ * @homepage:    http://foocder.github.io
+ * @create at:   `!v strftime("%Y-%m-%d %H:%M:%S")`
+ * @last update: `!v strftime("%Y-%m-%d %H:%M:%S")`
+ *@@@@@@@@@@ File Information Finish @@@@@@@@@@
+*/
+$0
+endsnippet
 
 snippet sleep "try sleep catch" b
 try {

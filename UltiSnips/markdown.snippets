@@ -25,6 +25,42 @@ endglobal
 ###########################
 # Sections and Paragraphs #
 ###########################
+snippet hpinfo "Blog's Head Info" b
+---
+title: ${1:Blog's Title}
+date: `!v strftime("%Y-%m-%d")`
+categories: ${2:Category Name"}
+tags: [${3:Tag Lists}]
+summary:${4:}
+cover-image: ${5:9.jpg}
+---
+$0
+endsnippet
+
+snippet highlight "Code Highlight" b
+{% highlight ${1:CodeName} %}
+${2:Context}
+{% endhighlight %}
+$0
+endsnippet
+
+snippet bookinfo "Book Information" b
+- title: ${1:BookName}
+  author: ${2:Author}
+  publisher: ${3:Publisher}
+  origin_title: ${4:Original Title}
+  translator: ${5:Translator}
+  language: ${6:Language}
+  link: ${7:DouBan Links}
+  score: ${8:DouBan Score}
+  cover: ${9:Cover Image}
+  status: ${10:Reading Status}
+  start_time: ${11:Start Time}
+  end_time: ${12:}
+  description: ${13:}
+  tags: { ${14:} }
+endsnippet
+
 snippet sec "Section" b
 # ${1:Section Name} #
 $0
